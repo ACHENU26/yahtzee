@@ -11,3 +11,11 @@ class test_mock(TestCase):
         assert 50 == Yatzy.yatzy([6,6,6,6,6])
         assert 0 == Yatzy.yatzy([6,6,6,6,3])
     
+
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
