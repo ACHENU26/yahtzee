@@ -141,8 +141,32 @@ class yahtzee:
             return 0
 
 # three_kind
+    @staticmethod
+    def three_kind(D1, D2, D3, D4, D5):
+        equivalent = [0]*6
+        equivalent[D1-1] += 1
+        equivalent[D2-1] += 1
+        equivalent[D3-1] += 1
+        equivalent[D4-1] += 1
+        equivalent[D5-1] += 1
+        for i in range(6):
+            if (equivalent[i] >= 3):
+                return (i+1) * 3
+        return 0
 
 # four_kind
+    @staticmethod
+    def four_kind(D1, D2, D3, D4, D5):
+        equivalent = [0]*6
+        equivalent[D1-1] += 1
+        equivalent[D2-1] += 1
+        equivalent[D3-1] += 1
+        equivalent[D4-1] += 1
+        equivalent[D5-1] += 1
+        for i in range(6):
+            if (equivalent[i] >= 4):
+                return (i+1) * 4
+        return 0
 
 # small_straight
 
