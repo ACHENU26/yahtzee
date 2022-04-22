@@ -1,3 +1,6 @@
+from random import randint
+
+
 class yahtzee:
     
     def __init__(self, D1, D2, D3, D4, D5):
@@ -169,8 +172,39 @@ class yahtzee:
         return 0
 
 # small_straight
+    @staticmethod
+    def small_straight(D1, D2, D3, D4, D5):
+        equivalent = [0]*6
+        equivalent[D1-1] += 1
+        equivalent[D2-1] += 1
+        equivalent[D3-1] += 1
+        equivalent[D4-1] += 1
+        equivalent[D5-1] += 1
+        if (equivalent[0] == 1 and
+            equivalent[1] == 1 and
+            equivalent[2] == 1 and
+            equivalent[3] == 1 and
+            equivalent[4] == 1):
+            return 15
+        return 0
 
 # large_straight
+    @staticmethod
+    def large_straight(D1, D2, D3, D4, D5):
+        equivalent = [0]*6
+        equivalent[D1-1] += 1
+        equivalent[D2-1] += 1
+        equivalent[D3-1] += 1
+        equivalent[D4-1] += 1
+        equivalent[D5-1] += 1
+        if (equivalent[0] == 1 and
+            equivalent[1] == 1 and
+            equivalent[2] == 1 and
+            equivalent[3] == 1 and
+            equivalent[4] == 1 and 
+            equivalent[5] == 1 ):
+            return 20
+        return 0
 
 # one_pair
 
