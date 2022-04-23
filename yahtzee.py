@@ -1,7 +1,7 @@
 from random import randint
 
 
-class yahtzee:
+class Yahtzee:
     
     def __init__(self, D1, D2, D3, D4, D5):
         self.dice = [0]*5
