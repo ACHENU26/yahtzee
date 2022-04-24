@@ -33,5 +33,5 @@ Our objective in this repository is to carry out a multitude of tests on dice ga
 - [test_yahtzee.py](https://github.com/ACHENU26/yahtzee/blob/main/test_yahtzee.py)
 
 ## Contributors 
-- [Hugo POIVREAU]() 
+- [Hugo POVEREAU]() 
 - [Axel CHENU](https://github.com/ACHENU26)
