@@ -19,5 +19,8 @@ class test_yatzee(TestCase):
     def test_yahtzee_valid(self):
         assert Yahtzee.turn([1, 1, 1, 1, 1], "yahtzee") == 50
 
+    def test_yahtzee_invalid(self):
+        assert Yahtzee.turn([1, 4, 4, 4, 4], "yahtzee") == 0
+
 if __name__ == '__main__':
     unittest.main()

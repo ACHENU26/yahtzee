@@ -15,4 +15,8 @@ class Yahtzee:
                 return sum(roll)
 
         elif expected == "yahtzee":
-            return 50
+            maxNumber = more_occurence(roll)
+            if count(maxNumber, roll) == 5:
+                return 50
+            else:
+                return 0
