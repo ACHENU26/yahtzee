@@ -32,3 +32,6 @@ class Yahtzee:
 
         elif expected == "fourOfAKind":
             return sum_is_valid(roll, 4)
+
+        elif expected == "fullHouse":
+            return 25
