@@ -31,6 +31,9 @@ class test_yatzee(TestCase):
     def test_FourOfAKind_valid(self):
         assert Yahtzee.turn([1, 2, 2, 2, 2], "fourOfAKind") == 9
 
+    def test_FourOfAKind_Invalid(self):
+        assert Yahtzee.turn([1, 3, 4, 4, 4], "fourOfAKind") == 0
+
 
 
 
