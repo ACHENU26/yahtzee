@@ -37,6 +37,9 @@ class test_yatzee(TestCase):
     def test_FullHouse(self):
         assert Yahtzee.turn([5, 5, 5, 1, 1], "fullHouse") == 25
 
+    def test_FullHouse_Invalid(self):
+        assert Yahtzee.turn([1, 2, 4, 4, 4], "fullHouse") == 0
+
 
 
 

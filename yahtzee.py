@@ -34,4 +34,8 @@ class Yahtzee:
             return sum_is_valid(roll, 4)
 
         elif expected == "fullHouse":
-            return 25
+            if count(more_occurence(roll), roll) == 3:
+                cutted_roll = list(filter((more_occurence(roll)).__ne__, roll))
+                if count(more_occurence(cutted_roll), cutted_roll) == 2:
+                    return 25
+            return 0
