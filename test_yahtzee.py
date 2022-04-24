@@ -43,6 +43,9 @@ class test_yatzee(TestCase):
     def test_SmallStraight_valid(self):
         assert Yahtzee.turn([6, 2, 3, 4, 1], "smallStraight") == 30
 
+    def test_SmallStraight_invalid(self):
+        assert Yahtzee.turn([1, 2, 4, 5, 5], "smallStraight") == 0
+
 
 
 

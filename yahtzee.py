@@ -39,3 +39,14 @@ class Yahtzee:
                 if count(more_occurence(cutted_roll), cutted_roll) == 2:
                     return 25
             return 0
+
+
+        elif expected == "smallStraight":
+            possible = [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]]
+            sortRoll = sorted(roll)
+            for i in possible:
+                print(i, "  ", sortRoll)
+                if all(elem in sortRoll for elem in i):
+                    return 30
+            return 0
+
