@@ -19,13 +19,15 @@ Each player rolls five six-sided dice. They can re-roll some or all of them up t
 - **Four of a kind:** Get four dice with the same number. Points are the sum all dice (not just the four of a kind).
 - **Small straight:** Get four sequential dice, 1,2,3,4 or 2,3,4,5 or 3,4,5,6. Scores 30 points.
 - **Large straight:** Get five sequential dice, 1,2,3,4,5 or 2,3,4,5,6. Scores 40 points.
+
 ## Tasks 
 Our objective in this repository is to carry out a multitude of tests on dice game. We carry out the tests in TDD with the Python language.
 
 ## How to use ? 
-- Step 1 : 
-- Step 2 : 
-- Step 3 : 
+- **Step 1 :** Run **test_yahtzee.py** OR launch python on your IDE shell **test_yahtzee.py** 
+
+- **Step 2 :** Check the tests results on terminal of your IDE
+
 ## Files
 - [yahtzee.py](https://github.com/ACHENU26/yahtzee/blob/main/yahtzee.py)
 - [test_yahtzee.py](https://github.com/ACHENU26/yahtzee/blob/main/test_yahtzee.py)
