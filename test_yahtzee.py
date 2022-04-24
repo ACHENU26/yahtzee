@@ -19,23 +19,6 @@ class test_yatzee(TestCase):
     def test_yahtzee_valid(self):
         assert Yahtzee.turn([1, 1, 1, 1, 1], "yahtzee") == 50
 
-    def test_yahtzee_invalid(self):
-        assert Yahtzee.turn([1, 4, 4, 4, 4], "yahtzee") == 0
-
-    def test_ThreeOfAKind_Valid(self):
-        assert Yahtzee.turn([1, 1, 1, 5, 6], "threeOfAKind") == 14
-
-    def test_ThreeOfAKind_Invalid(self):
-        assert Yahtzee.turn([1, 1, 4, 5, 6], "threeOfAKind") == 0
-
-    def test_FourOfAKind_valid(self):
-        assert Yahtzee.turn([1, 2, 2, 2, 2], "fourOfAKind") == 9
-
-    def test_FourOfAKind_Invalid(self):
-        assert Yahtzee.turn([1, 3, 4, 4, 4], "fourOfAKind") == 0
-
-
-
 
 
 if __name__ == '__main__':
