@@ -15,8 +15,6 @@ Each player rolls five six-sided dice. They can re-roll some or all of them up t
 - **Chance:** You can put anything into chance, it's basically like a garbage can when you don't have anything else you can use the dice for. The score is simply the sum of the dice.
 - **YAHTZEE:** Five of a kind. Scores 50 points. You can optionally get multiple Yahtzees, see below for details.
 - **Full house:** Get three of a kind and a pair, e.g. 1,1,3,3,3 or 3,3,3,6,6. Scores 25 points.
-- **Pair:** Get two dice with the same number. Points are the sum all dice (not just the three of a kind).
-- **Two pairs:** If there are two pairs of dice with the same number, the player scores the sum of these dice. 
 - **Three of a kind:** Get three dice with the same number. Points are the sum all dice (not just the three of a kind).
 - **Four of a kind:** Get four dice with the same number. Points are the sum all dice (not just the four of a kind).
 - **Small straight:** Get four sequential dice, 1,2,3,4 or 2,3,4,5 or 3,4,5,6. Scores 30 points.
