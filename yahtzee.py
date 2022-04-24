@@ -21,17 +21,20 @@ class Yahtzee:
     def turn(cls, roll, expected):
         if isinstance(expected, int):
             return count(expected, roll) * expected
+
         elif expected == "chance":
                 return sum(roll)
 
         elif expected == "yahtzee":
             return sum_is_valid(roll,5)
 
+
         elif expected == "threeOfAKind":
             return sum_is_valid(roll, 3)
 
         elif expected == "fourOfAKind":
             return sum_is_valid(roll, 4)
+
 
         elif expected == "fullHouse":
             if count(more_occurence(roll), roll) == 3:

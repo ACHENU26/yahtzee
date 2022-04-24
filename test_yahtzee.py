@@ -46,12 +46,11 @@ class test_yatzee(TestCase):
     def test_SmallStraight_invalid(self):
         assert Yahtzee.turn([1, 2, 4, 5, 5], "smallStraight") == 0
 
-    def test_LargeStraight(self):
+    def test_LargeStraight_valid(self):
         assert Yahtzee.turn([2, 5, 4, 3, 6], "largeStraight") == 40
 
-
-
-
+    def test_LargeStraight_invalid(self):
+        assert Yahtzee.turn([1, 3, 4, 5, 6], "largeStraight") == 0
 
 if __name__ == '__main__':
     unittest.main()
