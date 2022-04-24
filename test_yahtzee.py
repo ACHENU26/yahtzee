@@ -22,10 +22,10 @@ class test_yatzee(TestCase):
     def test_yahtzee_invalid(self):
         assert Yahtzee.turn([1, 4, 4, 4, 4], "yahtzee") == 0
 
-    def test_ThreeOfAKind_Valid(self):
+    def test_ThreeOfAKind_valid(self):
         assert Yahtzee.turn([1, 1, 1, 5, 6], "threeOfAKind") == 14
 
-    def test_ThreeOfAKind_Invalid(self):
+    def test_ThreeOfAKind_invalid(self):
         assert Yahtzee.turn([1, 1, 4, 5, 6], "threeOfAKind") == 0
 
     def test_FourOfAKind_valid(self):
@@ -34,11 +34,14 @@ class test_yatzee(TestCase):
     def test_FourOfAKind_invalid(self):
         assert Yahtzee.turn([1, 4, 2, 2, 2], "fourOfAKind") == 0
 
-    def test_FullHouse(self):
+    def test_FullHouse_valid(self):
         assert Yahtzee.turn([5, 5, 5, 1, 1], "fullHouse") == 25
 
-    def test_FullHouse_Invalid(self):
+    def test_FullHouse_invalid(self):
         assert Yahtzee.turn([1, 2, 4, 4, 4], "fullHouse") == 0
+
+    def test_SmallStraight_valid(self):
+        assert Yahtzee.turn([6, 2, 3, 4, 1], "smallStraight") == 30
 
 
 
