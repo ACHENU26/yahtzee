@@ -22,8 +22,15 @@ class test_yatzee(TestCase):
     def test_yahtzee_invalid(self):
         assert Yahtzee.turn([1, 4, 4, 4, 4], "yahtzee") == 0
 
-    def test_ThreeOfAKind(self):
+    def test_ThreeOfAKind_Valid(self):
         assert Yahtzee.turn([1, 1, 1, 5, 6], "threeOfAKind") == 14
+
+    def test_ThreeOfAKind_Invalid(self):
+        assert Yahtzee.turn([1, 1, 4, 5, 6], "threeOfAKind") == 0
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
