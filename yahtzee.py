@@ -29,3 +29,6 @@ class Yahtzee:
 
         elif expected == "threeOfAKind":
             return sum_is_valid(roll, 3)
+
+        elif expected == "fourOfAKind":
+            return sum_is_valid(roll, 4)
