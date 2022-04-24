@@ -1,211 +1,72 @@
-from random import randint
+def count(expected, roll):
+    return roll.count(expected)
+
+
+def more_occurence(roll):
+    return max(roll, key=roll.count)
+
+
+def sum_if_valid(roll, required):
+    maxNumber = more_occurence(roll)
+    if count(maxNumber, roll) == required:
+        if required == 5:
+            return 50
+        else:
+            return sum(roll)
+    else:
+        return 0
 
 
 class Yahtzee:
-    
-    def __init__(self, D1, D2, D3, D4, D5):
-        self.dice = [0]*5
-        self.dice[0] = D1
-        self.dice[1] = D2
-        self.dice[2] = D3
-        self.dice[3] = D4
-        self.dice[4] = D5
+    @classmethod
+    def Turn(cls, roll, expected):
 
-#### Upper section combinaisons
-#ones
-    @staticmethod
-    def ones(D1, D2, D3, D4, D5):
-        sum = 0
-        if (D1 == 1):
-            sum += 1
-        if (D2 == 1):
-            sum += 1
-        if (D3 == 1):
-            sum += 1
-        if (D4 == 1):
-            sum += 1
-        if (D5 == 1): 
-            sum += 1
-        return sum
+        if isinstance(expected, int):
+            return count(expected, roll) * expected
 
-#twos
-    @staticmethod
-    def two (D1, D2, D3, D4, D5):
-        sum = 0
-        if (D1 == 2):
-            sum += 2
-        if (D2 == 2):
-            sum += 2
-        if (D3 == 2):
-            sum += 2
-        if (D4 == 2):
-            sum += 2
-        if (D5 == 2): 
-            sum += 2
-        return sum
-
-#threes
-    @staticmethod
-    def three (D1, D2, D3, D4, D5):
-        sum = 0
-        if (D1 == 3):
-            sum += 3
-        if (D2 == 3):
-            sum += 3
-        if (D3 == 3):
-            sum += 3
-        if (D4 == 3):
-            sum += 3
-        if (D5 == 3): 
-            sum += 3
-        return sum
-
-#fours
-    def four(self):
-        sum = 0
-        i = 0
-        for at in range(len(self.dice)):
-            if (self.dice[i] == 4): 
-                sum += 4
-        return sum
-    
-#fives
-    def five(self):
-        sum = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                sum = sum + 5
-        return sum
-    
-#sixes
-    def sixe(self):
-        sum = 0
-        i = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[i] == 6):
-                sum = sum + 6
-        return sum
- 
-
-#### Lower section combinations
-# chance
-    @staticmethod
-    def chance(D1, D2, D3, D4, D5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
-# yahtzee
-    @staticmethod
-    def yatzee(dice):
-        counts = [0]*(len(dice)+1)
-        for d in dice:
-            counts[d-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
-# fullHouse
-    @staticmethod
-    def fullHouse(D1, D2, D3, D4, D5):
-        equivalent = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        equivalent = [0]*6
-        equivalent[D1-1] += 1
-        equivalent[D2-1] += 1
-        equivalent[D3-1] += 1
-        equivalent[D4-1] += 1
-        equivalent[D5-1] += 1
-
-        for i in range(6):
-            if (equivalent[i] == 2): 
-                _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (equivalent[i] == 3): 
-                _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
         else:
-            return 0
+            if expected == "chance":
+                return sum(roll)
 
-# three_kind
-    @staticmethod
-    def three_kind(D1, D2, D3, D4, D5):
-        equivalent = [0]*6
-        equivalent[D1-1] += 1
-        equivalent[D2-1] += 1
-        equivalent[D3-1] += 1
-        equivalent[D4-1] += 1
-        equivalent[D5-1] += 1
-        for i in range(6):
-            if (equivalent[i] >= 3):
-                return (i+1) * 3
-        return 0
+            elif expected == "threeOfAKind":
+                return sum_if_valid(roll, 3)
 
-# four_kind
-    @staticmethod
-    def four_kind(D1, D2, D3, D4, D5):
-        equivalent = [0]*6
-        equivalent[D1-1] += 1
-        equivalent[D2-1] += 1
-        equivalent[D3-1] += 1
-        equivalent[D4-1] += 1
-        equivalent[D5-1] += 1
-        for i in range(6):
-            if (equivalent[i] >= 4):
-                return (i+1) * 4
-        return 0
+            elif expected == "fourOfAKind":
+                return sum_if_valid(roll, 4)
 
-# small_straight
-    @staticmethod
-    def small_straight(D1, D2, D3, D4, D5):
-        equivalent = [0]*6
-        equivalent[D1-1] += 1
-        equivalent[D2-1] += 1
-        equivalent[D3-1] += 1
-        equivalent[D4-1] += 1
-        equivalent[D5-1] += 1
-        if (equivalent[0] == 1 and
-            equivalent[1] == 1 and
-            equivalent[2] == 1 and
-            equivalent[3] == 1 and
-            equivalent[4] == 1):
-            return 15
-        return 0
+            elif expected == "fullHouse":
+                if count(more_occurence(roll), roll) == 3:
+                    cutted_roll = list(filter((more_occurence(roll)).__ne__, roll))
+                    if count(more_occurence(cutted_roll), cutted_roll) == 2:
+                        return 25
+                return 0
 
-# large_straight
-    @staticmethod
-    def large_straight(D1, D2, D3, D4, D5):
-        equivalent = [0]*6
-        equivalent[D1-1] += 1
-        equivalent[D2-1] += 1
-        equivalent[D3-1] += 1
-        equivalent[D4-1] += 1
-        equivalent[D5-1] += 1
-        if (equivalent[0] == 1 and
-            equivalent[1] == 1 and
-            equivalent[2] == 1 and
-            equivalent[3] == 1 and
-            equivalent[4] == 1 and 
-            equivalent[5] == 1 ):
-            return 20
-        return 0
+            elif expected == "yahtzee":
+                return sum_if_valid(roll, 5)
 
-# one_pair
+            elif expected == "smallStraight":
+                possible = [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6]]
+                sortRoll = sorted(roll)
+                for i in possible:
+                    print(i, "  ", sortRoll)
+                    if all(elem in sortRoll for elem in i):
+                        return 30
 
-#two_pairs
+                return 0
+
+            elif expected == "largeStraight":
+                possible = [[1, 2, 3, 4, 5], [2, 3, 4, 5, 6]]
+                sortRoll = sorted(roll)
+                if sortRoll == possible[0] or sortRoll == possible[1]:
+                    return 40
+                else:
+                    return 0
+            
+            elif expected == "onePair":
+                i = 0
+                for i in range(6):
+                    if (counts[6-i-1] == 2):
+                        return (6-i)*2
+                return 0
+
+            #elif expected == "twoPair":
