@@ -50,5 +50,11 @@ class Yahtzee:
                     return 30
             return 0
 
+
         elif expected == "largeStraight":
-            return 40
+            possible = [[1, 2, 3, 4, 5], [2, 3, 4, 5, 6]]
+            sortRoll = sorted(roll)
+            if sortRoll == possible[0] or sortRoll == possible[1]:
+                return 40
+            else:
+                return 0
