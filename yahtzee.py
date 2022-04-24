@@ -19,5 +19,9 @@ def sum_if_valid(roll, required):
 
 class Yahtzee:
     @classmethod
-    def Turn(cls, roll, expected):
-        return count(expected, roll) * expected
+    def turn(cls, roll, expected):
+        if isinstance(expected, int):
+            return count(expected, roll) * expected
+        else:
+            if expected == "chance":
+                return sum(roll)
