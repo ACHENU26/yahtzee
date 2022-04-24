@@ -50,3 +50,5 @@ class Yahtzee:
                     return 30
             return 0
 
+        elif expected == "largeStraight":
+            return 40
